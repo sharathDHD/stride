@@ -1,0 +1,113 @@
+{
+  "version": 1,
+  "notes": "Quest definitions for Stride. Targets are resolved at runtime. multiplier means: target = round(daily goal * multiplier). 'target' is used when multiplier is 0. Period keys: daily = local date, weekly = Monday of the local week, milestones = 'ever'.",
+  "daily": [
+    {
+      "id": "daily_warmup",
+      "title": "Warm Up",
+      "description": "Walk {target} steps today.",
+      "type": "daily_steps",
+      "multiplier": 0.5,
+      "xp": 10
+    },
+    {
+      "id": "daily_goal",
+      "title": "Daily Goal",
+      "description": "Reach your daily goal of {target} steps.",
+      "type": "daily_steps",
+      "multiplier": 1.0,
+      "xp": 20
+    },
+    {
+      "id": "daily_stretch",
+      "title": "Overachiever",
+      "description": "Walk {target} steps: 20% beyond your goal.",
+      "type": "daily_steps",
+      "multiplier": 1.2,
+      "xp": 30
+    }
+  ],
+  "weekly": [
+    {
+      "id": "weekly_steady_path",
+      "title": "Steady Path",
+      "description": "Reach your daily goal on 4 different days this week.",
+      "type": "weekly_goal_days",
+      "target": 4,
+      "xp": 80,
+      "badge": "steady_path"
+    },
+    {
+      "id": "weekly_getting_out",
+      "title": "Getting Out",
+      "description": "Be active on 3 different days this week (1,000+ steps).",
+      "type": "weekly_active_days",
+      "target": 3,
+      "xp": 50
+    },
+    {
+      "id": "weekly_big_week",
+      "title": "Big Week",
+      "description": "Walk {target} steps this week.",
+      "type": "weekly_steps",
+      "multiplier": 5.0,
+      "xp": 100
+    }
+  ],
+  "milestones": [
+    {
+      "id": "milestone_100k",
+      "title": "Century Club",
+      "description": "Walk 100,000 steps in total.",
+      "type": "lifetime_steps",
+      "target": 100000,
+      "xp": 100,
+      "badge": "century"
+    },
+    {
+      "id": "milestone_500k",
+      "title": "Half Million",
+      "description": "Walk 500,000 steps in total.",
+      "type": "lifetime_steps",
+      "target": 500000,
+      "xp": 250,
+      "badge": "half_million"
+    },
+    {
+      "id": "milestone_1m",
+      "title": "Million Steps",
+      "description": "Walk 1,000,000 steps in total.",
+      "type": "lifetime_steps",
+      "target": 1000000,
+      "xp": 500,
+      "badge": "million"
+    },
+    {
+      "id": "milestone_10k_day",
+      "title": "Five Digits",
+      "description": "Walk 10,000 steps in a single day.",
+      "type": "best_day",
+      "target": 10000,
+      "xp": 100,
+      "badge": "five_digits"
+    },
+    {
+      "id": "milestone_7_streak",
+      "title": "Week of Wins",
+      "description": "Reach your goal 7 days in a row.",
+      "type": "streak_days",
+      "target": 7,
+      "xp": 150,
+      "badge": "week_wins"
+    },
+    {
+      "id": "milestone_30_streak",
+      "title": "Habit Formed",
+      "description": "Reach your goal 30 days in a row.",
+      "type": "streak_days",
+      "target": 30,
+      "xp": 500,
+      "badge": "habit_formed"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+# Build outputs (recreated by build.ps1)
+out/
+out-debug/
+*.idsig
+
+# Signing material — never commit
+key.jks
+keystore.env.ps1
