@@ -44,6 +44,11 @@ $classes = Join-Path $out "classes"
 $dex = Join-Path $out "dex"
 New-Item -ItemType Directory -Force -Path $classes, $dex | Out-Null
 
+Write-Host "Compiling resources..."
+$resZip = Join-Path $out "res.zip"
+& $aapt2 compile --dir (Join-Path $root "res") -o $resZip
+if ($LASTEXITCODE -ne 0) { throw "aapt2 compile failed" }
+
 Write-Host "Packaging resources..."
 $aaptArgs = @(
     "link",
@@ -55,6 +60,7 @@ $aaptArgs = @(
     "--target-sdk-version", "34"
 )
 if ($Debug) { $aaptArgs += "--debug-mode" }
+$aaptArgs += $resZip
 & $aapt2 @aaptArgs
 if ($LASTEXITCODE -ne 0) { throw "aapt2 failed" }
 

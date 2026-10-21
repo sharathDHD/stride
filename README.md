@@ -1,5 +1,7 @@
 # Stride
 
+<img src="docs/icon.png" width="96" align="right" alt="Stride app icon">
+
 A fully private, offline step tracker for Android — plus a single-file browser
 dashboard for your laptop.
 
@@ -17,6 +19,7 @@ More screens: [History](docs/history.png) · [Quests](docs/quests.png) · [Setti
 |---|---|
 | `out/stride.apk` | Signed, release APK ready to sideload |
 | `src/com/darsha/steps/` | Native Android app (Java, single activity) |
+| `res/` | Adaptive launcher icon (vector layers + legacy PNGs) |
 | `assets/quests.json` | Data-driven quest definitions |
 | `dashboard/index.html` | Offline laptop dashboard (open in any browser) |
 | `build.ps1` | Build + align + sign without Gradle |
@@ -246,6 +249,8 @@ private-steps/
 On a physical Android 14 Motorola device:
 
 - Release APK installed and launched; release build exposes no debug tools.
+- New adaptive launcher icon (foreground, background, monochrome, and legacy
+  PNG layers) installed and confirmed in Android's App info screen.
 - `TYPE_STEP_COUNTER` (`step_count`) registered and active for
   `com.darsha.steps.StepService`; persistent foreground service running.
 - Fresh state after clearing app data: 0 steps, empty history, Level 1 / 0 XP,
@@ -258,7 +263,7 @@ On a physical Android 14 Motorola device:
   built-in sample, and a 390 px mobile viewport — no console errors.
 - APK checks: no `INTERNET` permission, not debuggable, `apksigner` verified.
 
-**Artifact:** `out/stride.apk` — 45,519 bytes, SHA-256
-`5338DD0B459F64C30073DE88A6F817E6785738A4CA7144BFE199A386DBAAB6B2`.
+**Artifact:** `out/stride.apk` — 116,420 bytes, SHA-256
+`5845A61453331A660D906D68C09796D531D58530F45BCDB79198C43F0BA7602D`.
 Signer: `CN=stride` (local key). Bump `versionCode` in `AndroidManifest.xml` for
 future upgrades, and sign with the same `key.jks`.
